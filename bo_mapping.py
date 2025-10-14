@@ -5,9 +5,9 @@ import pandas as pd
 import creds as cred
 
 arr_rellation = ['schema.table'] #list: schema.table 
-file = ['select.txt'] #list: files
+arr_file = ['select.txt','insert.txt','update.txt','var.txt'] #list: files
 
-df_file = pd.DataFrame({'file':file})
+df_file = pd.DataFrame({'file':arr_file})
 
 # get db object matrix
 df_db = func.get_db(arr_rellation)
@@ -61,5 +61,7 @@ for index_file, row_file in df_file.iterrows():
                
         match row_file['file']:
             case 'select.txt': func.print_tree_slct(tree,path_output,row_file['file'])
-      
+            case 'insert.txt': func.print_tree_ins(tree,path_output,row_file['file'])
+            case 'update.txt': func.print_tree_upd(tree,path_output,row_file['file'])
+            case 'var.txt': func.print_tree_upd(tree,path_output,row_file['file'])
 
