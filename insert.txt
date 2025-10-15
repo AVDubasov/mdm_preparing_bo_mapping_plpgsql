@@ -1,0 +1,30 @@
+
+-------------------------------
+-- insert BO table
+<sql clause = "
+DECLARE
+   n_id uuid := uuid(:v_id);
+   n_code character varying := :v_code;
+   n_sname jsonb := :v_sname;
+   n_fname jsonb := :v_fname;
+   n_is_archive boolean := :v_is_archive;
+
+BEGIN
+INSERT INTO schema.table (
+   id
+   ,code
+   ,sname
+   ,fname
+   ,is_archive
+)
+values (
+   n_id
+   ,n_code
+   ,n_sname
+   ,n_fname
+   ,n_is_archive
+
+   );
+END;
+">
+</sql>
